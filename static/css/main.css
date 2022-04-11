@@ -24,6 +24,8 @@ body {
 }
 .menubar h1 {
   width: max-content;
+  font-size: 1em;
+  font-style: italic;
 }
 .menubar {
   position: fixed;
@@ -48,14 +50,15 @@ nav ul {
 
 nav ul li {
   height: 100%;
-  transform: scale(0.7);
 }
 
 nav ul {
   display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
   justify-content: space-around;
   flex-flow: row;
-  align-items: stretch;
   background: linear-gradient(
     to bottom,
     white 48%,
@@ -77,8 +80,8 @@ nav li {
   justify-content: center;
 }
 nav svg {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   background: white;
 }
 nav .active {
@@ -86,11 +89,13 @@ nav .active {
   flex-shrink: 1;
   color: var(--accent-color);
   text-align: center;
-  transform: scale(1);
 }
 
+nav .active svg {
+  width: 60px;
+  height: 60px;
+}
 nav .menuTitle {
-  color: orange;
   position: fixed;
   bottom: 5em;
   left: 0;
@@ -198,9 +203,13 @@ h4 {
 }
 
 .talk.textBlock main {
-  font-size: 3em;
+  font-size: 1em;
   margin: auto;
   width: clamp(80%, 50vw, 1000px);
+}
+
+.talk.textBlock main p {
+  max-width: 50ch;
 }
 .talk.textBlock:target {
   display: flex;
@@ -214,39 +223,38 @@ h4 {
   margin: 0;
 }
 
-a:focus,
-a:active {
-  color: var(--color-accent);
-}
 .prevnext {
   display: block;
   align-items: center;
   justify-content: space-around;
+  z-index: 4000;
 }
 .prevnext svg {
-  position: absolute;
+  /* position: absolute; */
   width: 40px;
-  top: 49vh;
+  /* top: 49vh; */
 }
 
 .prevnext {
-  width: 10ch;
-  height: 100vh;
+  width: auto;
   position: fixed;
+  top: 48vh;
 }
 .prevnext.next {
-  right: 10ch;
+  right: 0ch;
   text-align: right;
 }
 .prevnext.previous {
-  left: 3vw;
+  left: 0;
 }
 
 .prevnext .text {
-  top: 49vh;
   width: 20ch;
   position: absolute;
   display: none;
+  background: white;
+  width: max-content;
+  padding: 0.2ch 0.2em;
 }
 
 .prevnext:hover {
@@ -261,4 +269,12 @@ a:active {
 }
 .prevnext.previous .text {
   left: 5ch;
+}
+a:visited {
+  color: inherit;
+}
+a:focus,
+a:hover,
+a:active {
+  color: var(--color-accent);
 }
