@@ -1,0 +1,38 @@
+{% extends "base.njk" %}
+{% block headerSup %}
+    <link rel="stylesheet" type="text/css" href="/css/green-audio-player.css">
+<script src="/js/green-audio-player.js"></script>
+{% endblock headerSup %}
+{% block content %}
+
+    {% for item in collections.talks %}
+        {% if 'intro' in item.data.type %}
+        {% include "modules/intro.njk" %}
+
+        {% endif %}
+{% if 'talk' in item.data.type %}
+{% include "modules/talk.njk" %}
+
+{% endif %}
+
+{% if 'text' in item.data.type %}
+{% include "modules/text.njk" %}
+
+{% endif %}
+        {% endfor %} 
+
+
+
+{% endblock content %}
+
+{% block menu %}
+    {% include "./modules/menu.njk" %}
+{% endblock %}
+
+{% block endscripts %}
+<script> GreenAudioPlayer.init({
+    selector: '.audioplayer', // inits Green Audio Player on each audio container that has class "player"
+    stopOthersOnPlay: true
+});
+</script>
+{% endblock endscripts %}

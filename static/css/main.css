@@ -1,0 +1,264 @@
+@import url(reset.css);
+@import url(fonts.css);
+
+:root {
+  --color-body: black;
+  --font-sans: "Jost";
+  --color-accent: blue;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  display: grid;
+  max-height: 100vh;
+  grid-template-rows: [top] 1fr [menu] 4em [end];
+}
+
+.menubar {
+  color: var(--color-body);
+  /* grid-row: menu; */
+  /* overflow: auto; */
+  /* font-style: italic; */
+}
+.menubar h1 {
+  width: max-content;
+}
+.menubar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.menubar h1 {
+  margin-left: 3ch;
+  text-decoration: underline;
+  color: var(--color-accent);
+}
+nav ul {
+  height: 100%;
+  margin: 0 3ch;
+}
+nav ul {
+  list-style-type: none;
+  display: flex;
+  height: 100%;
+}
+
+nav ul li {
+  height: 100%;
+  transform: scale(0.7);
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row;
+  align-items: stretch;
+  background: linear-gradient(
+    to bottom,
+    white 48%,
+    black 48%,
+    black 52%,
+    white 52%
+  );
+}
+
+nav li {
+  margin: 0 auto;
+  flex-shrink: 5;
+  color: grey;
+  transition: all 1s;
+  display: flex;
+  align-items: center;
+  display: block;
+  transition: all 1s;
+  justify-content: center;
+}
+nav svg {
+  width: 50px;
+  height: 50px;
+  background: white;
+}
+nav .active {
+  flex-grow: 5;
+  flex-shrink: 1;
+  color: var(--accent-color);
+  text-align: center;
+  transform: scale(1);
+}
+
+nav .menuTitle {
+  color: orange;
+  position: fixed;
+  bottom: 5em;
+  left: 0;
+  text-align: center;
+  right: 0;
+  display: none;
+}
+
+nav li:hover .menuTitle {
+  display: block;
+}
+h2,
+h3,
+h4 {
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.talk {
+  /* background: red; */
+  display: grid;
+  grid-template-columns: repeat(24, calc(100vw / 25));
+  grid-template-rows: repeat(24, calc((90vh) / 25));
+}
+.talk time {
+  text-align: right;
+  display: inline-block;
+  padding: 0.4em 1ch;
+  grid-row: 4;
+  grid-column: 6 / span 2;
+  background: white;
+}
+
+.talk > svg {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.talk time + svg {
+  grid-column: 6 / 12;
+  grid-row: 4 / 6;
+}
+.talk header {
+  display: inline-block;
+  padding: 0.4em 1ch;
+  height: max-content;
+  grid-row: 5 / span 1;
+  width: max-content;
+  background: white;
+  grid-column: 11 / span 10;
+}
+.talk header + svg {
+  grid-column: 10 / 13;
+  grid-row: 6 / 9;
+  transform: scaleY(-1);
+}
+
+.talk iframe,
+.talk .screenshot {
+  box-shadow: 0 0 0 10px white;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  filter: grayscale();
+  grid-column: 8 / 23;
+  grid-row: 8 / 16;
+}
+
+.screenshot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 0;
+}
+
+.talk .screenshot + svg {
+  grid-row: 14 / 17;
+  grid-column: 14;
+}
+.talk a.screenshot img {
+  max-height: 100%;
+  height: 100%;
+}
+.talk .screenshot:hover {
+  box-shadow: 0 0 0 7px white, 0 0 0 8px var(--color-accent);
+  filter: none;
+}
+.talk .audioplayer {
+  grid-column: 13/14;
+  grid-row: 17;
+}
+
+/* show hide stuff with target only */
+.talk {
+  display: none;
+  font-style: italic;
+  opacity: 0;
+}
+
+.talk.textBlock {
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.talk.textBlock main {
+  font-size: 3em;
+  margin: auto;
+  width: clamp(80%, 50vw, 1000px);
+}
+.talk.textBlock:target {
+  display: flex;
+}
+.talk:target {
+  display: grid;
+  opacity: 1;
+}
+
+.talk.textBlock > * {
+  margin: 0;
+}
+
+a:focus,
+a:active {
+  color: var(--color-accent);
+}
+.prevnext {
+  display: block;
+  align-items: center;
+  justify-content: space-around;
+}
+.prevnext svg {
+  position: absolute;
+  width: 40px;
+  top: 49vh;
+}
+
+.prevnext {
+  width: 10ch;
+  height: 100vh;
+  position: fixed;
+}
+.prevnext.next {
+  right: 10ch;
+  text-align: right;
+}
+.prevnext.previous {
+  left: 3vw;
+}
+
+.prevnext .text {
+  top: 49vh;
+  width: 20ch;
+  position: absolute;
+  display: none;
+}
+
+.prevnext:hover {
+  color: var(--color-accent);
+}
+
+.prevnext:hover .text {
+  display: block;
+}
+.prevnext.next .text {
+  right: 5ch;
+}
+.prevnext.previous .text {
+  left: 5ch;
+}
