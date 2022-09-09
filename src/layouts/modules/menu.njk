@@ -1,7 +1,7 @@
 <section class="menubar">
   <nav>
   <ul>
-  {% for item in collections.talks %}
+  {% for item in collections.things %}
     <li  {% if item.data.type == "intro" %} class="active" {% endif %} > 
     <a 
     href="#{{item.data.title | slugify}}">
@@ -11,6 +11,8 @@
         {% include "../icons/iconText.njk" %}
     {% elseif item.data.type == "text" %}
       {% include "../icons/iconText.njk" %}
+    {% elseif item.data.type == "demo" %}
+      {% include "../icons/sequences.njk" %}
         {% else %} 
       {% include "../icons/menuIcon.njk"%}
         {% endif %}

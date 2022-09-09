@@ -29,7 +29,14 @@ module.exports = function (eleventyConfig) {
     return date = new Date(value).toLocaleDateString(undefined, {month: 'long', year:'numeric'});
   })
 
+  eleventyConfig.addCollection("things", collection => {
+    return [...collection.getFilteredByGlob(["src/content/intro.md","src/content/talks/*.md", "src/content/demos/*.md"])]
+  })
 
+  
+  eleventyConfig.addCollection("demos", collection => {
+    return [...collection.getFilteredByGlob("src/content/demos/*.md")]
+  })
   eleventyConfig.addCollection("talks", collection => {
     return [...collection.getFilteredByGlob("src/content/talks/*.md")]
   })

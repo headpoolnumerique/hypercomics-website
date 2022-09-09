@@ -1,6 +1,6 @@
 ---
 title: hypercomics?
-subtitle: un projet de recherche de la Head
+subtitle: responsive comics 
 date: 2021-10-01
 type: intro
 ---

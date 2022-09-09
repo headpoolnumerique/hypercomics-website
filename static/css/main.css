@@ -2,12 +2,14 @@
 @import url(fonts.css);
 
 :root {
-  --color-body: black;
-  --font-sans: "Jost";
-  --color-accent: blue;
+  --color-body:blue ;
+  --font-sans: "Epilogue";
+  --color-accent: grey;
+  --color-text: #2F1E2D;
 }
 
 body {
+  color: var(--color-text);
   margin: 0;
   padding: 0;
   font-family: var(--font-sans);
@@ -16,11 +18,12 @@ body {
   grid-template-rows: [top] 1fr [menu] 4em [end];
 }
 
+h1,h2,h3 {
+  font-weight: 800;
+}
+
 .menubar {
   color: var(--color-body);
-  /* grid-row: menu; */
-  /* overflow: auto; */
-  /* font-style: italic; */
 }
 .menubar h1 {
   width: max-content;
@@ -142,8 +145,7 @@ h4 {
   display: inline-block;
   padding: 0.4em 1ch;
   height: max-content;
-  grid-row: 5 / span 1;
-  width: max-content;
+  grid-row: 5 /  span 4;
   background: white;
   grid-column: 11 / span 10;
 }
@@ -153,15 +155,52 @@ h4 {
   transform: scaleY(-1);
 }
 
+
 .talk iframe,
 .talk .screenshot {
   box-shadow: 0 0 0 10px white;
   width: 100%;
-  height: 100%;
+  height: 90%;
   padding: 0;
-  filter: grayscale();
-  grid-column: 8 / 23;
-  grid-row: 8 / 16;
+  grid-column: 5 / 23;
+  grid-row:  span 17;
+ align-self: center; 
+ justify-self:center;
+ z-index: 1;
+}
+
+/* .demo .screenshot::before { */
+/*   content: 'resize me'; */ 
+/*   text-align: center; */
+/*   background: var(--color-accent, orange); */
+/*   display: block; */
+/*   color: red; */
+/*   margin-bottom: 1em; */
+/* } */
+
+
+
+.screenshot {
+  /* position: relative; */
+}
+
+.demo .screenshot::after {
+  content: '' attr(data-width)'px × ' attr(data-height)'px';
+  /* position: absolute; */
+  text-align: right;
+  width:100%;
+  margin: 0;
+  display: block;
+  bottom: 0;
+  right: 1em;
+}
+
+.demo .scrennshot { 
+filter: unset
+}
+
+iframe:hover {
+  filter: none;
 }
 
 .screenshot img {
@@ -241,11 +280,11 @@ h4 {
   top: 48vh;
 }
 .prevnext.next {
-  right: 0ch;
+  right: 2ch;
   text-align: right;
 }
 .prevnext.previous {
-  left: 0;
+  left: 2ch;
 }
 
 .prevnext .text {
@@ -277,4 +316,46 @@ a:focus,
 a:hover,
 a:active {
   color: var(--color-accent);
+}
+
+.intro h1 {
+ font-size: 3em;
+ margin-bottom: .3em;
+width: max-content;
+text-decoration: underline;
+text-decoration-color: currentColor;
+text-decoration-thickness: 5px;
+position: relative;
+}
+
+.intro h1::after {
+  content: "";
+  background: currentColor;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: -30px;
+  right: 20%;
+  clip-path: polygon(0% 100%, 100% 100%, 45% 100% );
+}
+
+
+
+.intro .logo {
+  display: block;
+  position: absolute;
+  right: 20vw;
+  top: 20vh;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+}
+
+.intro .logo img {
+  filter: grayscale();
+  margin-top:  1em;
+  width: 20ch;
+
+}.resizer {
+resize:both; overflow:hidden
 }

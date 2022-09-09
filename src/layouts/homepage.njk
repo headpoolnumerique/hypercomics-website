@@ -1,25 +1,33 @@
+
 {% extends "base.njk" %}
 {% block headerSup %}
     <link rel="stylesheet" type="text/css" href="/css/green-audio-player.css">
 <script src="/js/green-audio-player.js"></script>
 {% endblock headerSup %}
+
 {% block content %}
 
-    {% for item in collections.talks %}
-        {% if 'intro' in item.data.type %}
+
+    {% for item in collections.things %}
+
+      {% if 'intro' == item.data.type %}
         {% include "modules/intro.njk" %}
+      {% endif %}
 
-        {% endif %}
-{% if 'talk' in item.data.type %}
-{% include "modules/talk.njk" %}
+      {% if 'talk' == item.data.type %}
+        {% include "modules/talk.njk" %}
+      {% endif %}
 
-{% endif %}
+      {% if 'demo' == item.data.type %}
+        {% include "modules/demo.njk" %}
+      {% endif %}
 
-{% if 'text' in item.data.type %}
-{% include "modules/text.njk" %}
+      {% if 'text' == item.data.type %}
+        {% include "modules/text.njk" %}
+      {% endif %}
 
-{% endif %}
-        {% endfor %} 
+
+    {% endfor %} 
 
 
 
