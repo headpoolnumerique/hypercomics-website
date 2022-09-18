@@ -1,0 +1,10 @@
+<section id="{{ item.data.title | slugify  }}" class="journal">
+  {% include "./prev.njk" %}
+  <header>
+    <time>{{ item.data.date | monthYear }}</time>
+    {# {% include "./link.njk" %} #}
+    <h2>{{ item.data.title }}</h2>
+  </header>
+  <article class="dialogue">{{item.templateContent | safe}}</article>
+  {% include "./next.njk" %}
+</section>

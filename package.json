@@ -12,6 +12,8 @@
   "license": "ISC",
   "dependencies": {
     "@11ty/eleventy": "^1.0.0",
-    "@sindresorhus/slugify": "^1.1.2"
+    "@sindresorhus/slugify": "^1.1.2",
+    "markdown-it": "^12.3.2",
+    "markdown-it-classy": "^0.2.0"
   }
 }

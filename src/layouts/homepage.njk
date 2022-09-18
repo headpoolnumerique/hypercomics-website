@@ -5,11 +5,11 @@
 <script src="/js/green-audio-player.js"></script>
 {% endblock headerSup %}
 
+
 {% block content %}
 
 
     {% for item in collections.things %}
-
       {% if 'intro' == item.data.type %}
         {% include "modules/intro.njk" %}
       {% endif %}
@@ -26,6 +26,9 @@
         {% include "modules/text.njk" %}
       {% endif %}
 
+      {% if 'journal' == item.data.type %}
+        {% include "modules/journal.njk" %}
+      {% endif %}
 
     {% endfor %} 
 

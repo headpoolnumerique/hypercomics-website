@@ -1,9 +1,21 @@
 const slugify = require('slugify')
 const flaxaudio = require("./flaxaudio/"); // For local development
+const classy = require("markdown-it-classy"); 
+const markdownIt = require("markdown-it");
 
 
 module.exports = function (eleventyConfig) {
 
+  let options = {
+    html: true,
+    breaks: true,
+    linkify: true
+  };
+
+  // add class to the MD
+  
+
+ eleventyConfig.setLibrary("md", markdownIt(options).use(classy));
 
   eleventyConfig.addPassthroughCopy({ "static/css": "/css" });
   eleventyConfig.addPassthroughCopy({ "static/fonts": "/fonts" });
@@ -21,6 +33,9 @@ module.exports = function (eleventyConfig) {
     audioEl: false
   });
 
+  
+
+
   eleventyConfig.addFilter('slugify', function (value) {
     return slugify(value);
   })
@@ -30,7 +45,7 @@ module.exports = function (eleventyConfig) {
   })
 
   eleventyConfig.addCollection("things", collection => {
-    return [...collection.getFilteredByGlob(["src/content/intro.md","src/content/talks/*.md", "src/content/demos/*.md"])]
+    return [...collection.getFilteredByGlob(["src/content/journal/*.md","src/content/intro.md","src/content/talks/*.md", "src/content/demos/*.md"])]
   })
 
   

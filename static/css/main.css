@@ -1,7 +1,9 @@
 @import url(reset.css);
 @import url(fonts.css);
+@import url("https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css");
 
 :root {
+  --font-comics: "Kalam";
   --color-body:blue ;
   --font-sans: "Epilogue";
   --color-accent: grey;
@@ -155,9 +157,21 @@ h4 {
   transform: scaleY(-1);
 }
 
-
 .talk iframe,
 .talk .screenshot {
+  box-shadow: 0 0 0 10px white;
+  width: 100%;
+  height: 90%;
+  padding: 0;
+  grid-column: 5 / 23;
+  grid-row: 7/ 16;
+ align-self: center; 
+ justify-self:center;
+ z-index: 1;
+}
+
+.talk.demo iframe,
+.talk.demo .screenshot {
   box-shadow: 0 0 0 10px white;
   width: 100%;
   height: 90%;
@@ -172,7 +186,7 @@ h4 {
 /* .demo .screenshot::before { */
 /*   content: 'resize me'; */ 
 /*   text-align: center; */
-/*   background: var(--color-accent, orange); */
+/*   background: var(--color-accent, orange); */
 /*   display: block; */
 /*   color: red; */
 /*   margin-bottom: 1em; */
@@ -355,7 +369,69 @@ position: relative;
   filter: grayscale();
   margin-top:  1em;
   width: 20ch;
+}
+.resizer {
+  resize:both; overflow:hidden
+}
+.journal:target {
+  display: block;
+}
+.journal {
+  width: clamp(200px, 80vw, 800px);
+  border: 2px solid var(--accent-color);
+  margin: auto;
+  display: none;
+}
 
-}.resizer {
-resize:both; overflow:hidden
+.journal header {
+  width: max-content;
+  padding: .7em 2ch;
+  border: 8px solid black;
+  grid-column: 1/-1;
+  margin: 2em;
+  box-shadow: 1ch .6em 0 0 black;
+}
+
+.dialogue::before {
+  content: "";
+  border-left: 1px solid black;
+  height: 100vh;
+  position: fixed;
+  right: 25%;
+  z-index: -1;
+}
+.dialogue::after {
+  content: "";
+  border-left: 1px solid black;
+  height: 100vh;
+  position: fixed;
+  left: 25%;
+  z-index: -1;
+}
+
+.dialogue p {
+margin-bottom: 2em;
+clear: both;
+}
+
+.dialogue {
+  font-family: var(--font-comics);
+}
+.dialogue :is(.clem, .ju) {
+  width: 51%;
+  border-bottom: 2px solid orange;
+  border-radius: 80%;
+  padding: 2em 4ch;
+  text-align:center;
+  background: white;
+}
+.dialogue .clem {
+  padding-left: 2em;
+  float: right;
+  border-left: 2px solid orange;
+}
+.dialogue .ju {
+  float: left;
+  padding-right: 2em;
+  border-right: 2px solid orange;
 }

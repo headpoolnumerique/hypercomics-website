@@ -18,7 +18,7 @@ const screenshotObserver = new ResizeObserver(screenshots =>{
     if (screenshot.contentBoxSize) {
 screens.forEach(screen =>  {
       screen.dataset.width = Math.round(screenshot.contentBoxSize[0].inlineSize);
-      screen.dataset.height = Math.round( screenshot.contentBoxSize[0].blockSize * 0.8 );
+      screen.dataset.height = Math.round( screenshot.contentBoxSize[0].blockSize * 0.9 );
 }) 
     }
     // screenshot.dataset.width = screenshot.contentBoxSize
