@@ -3,6 +3,7 @@
 {% block headerSup %}
     <link rel="stylesheet" type="text/css" href="/css/green-audio-player.css">
 <script src="/js/green-audio-player.js"></script>
+
 {% endblock headerSup %}
 
 
@@ -27,7 +28,7 @@
       {% endif %}
 
       {% if 'journal' == item.data.type %}
-        {% include "modules/journal.njk" %}
+        {% include "modules/dialogue.njk" %}
       {% endif %}
 
     {% endfor %} 
@@ -46,4 +47,15 @@
     stopOthersOnPlay: true
 });
 </script>
+<script src="/js/leader-line.min.js"></script>
+<script src="/js/dialoglines.js"></script>
 {% endblock endscripts %}
+
+
+
+
+
+
+
+
+

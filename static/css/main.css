@@ -1,13 +1,11 @@
-@import url(reset.css);
+
 @import url(fonts.css);
 @import url("https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css");
 
-:root {
-  --font-comics: "Kalam";
-  --color-body:blue ;
-  --font-sans: "Epilogue";
-  --color-accent: grey;
+:root { --font-comics: "Kalam"; --color-body:blue ; --font-sans: "Epilogue"; --color-accent: grey;
   --color-text: #2F1E2D;
+  --ju-color: orange;
+  --clem-color:purple;
 }
 
 body {
@@ -181,21 +179,6 @@ h4 {
  align-self: center; 
  justify-self:center;
  z-index: 1;
-}
-
-/* .demo .screenshot::before { */
-/*   content: 'resize me'; */ 
-/*   text-align: center; */
-/*   background: var(--color-accent, orange); */
-/*   display: block; */
-/*   color: red; */
-/*   margin-bottom: 1em; */
-/* } */
-
-
-
-.screenshot {
-  /* position: relative; */
 }
 
 .demo .screenshot::after {
@@ -381,57 +364,69 @@ position: relative;
   border: 2px solid var(--accent-color);
   margin: auto;
   display: none;
+  font-family: var(--font-comics);
 }
 
 .journal header {
   width: max-content;
+  text-transform: uppercase;
   padding: .7em 2ch;
   border: 8px solid black;
   grid-column: 1/-1;
+  background: white;
+  z-index: 2;
+  position: relative;
   margin: 2em;
   box-shadow: 1ch .6em 0 0 black;
 }
 
-.dialogue::before {
+.dialogue::before, .dialogue::after {
   content: "";
-  border-left: 1px solid black;
   height: 100vh;
   position: fixed;
-  right: 25%;
-  z-index: -1;
-}
-.dialogue::after {
-  content: "";
-  border-left: 1px solid black;
-  height: 100vh;
-  position: fixed;
-  left: 25%;
+  top:0;
   z-index: -1;
 }
 
 .dialogue p {
-margin-bottom: 2em;
-clear: both;
+  margin-bottom: 2em;
+  clear: both;
+  scroll-snap-type: y mandatory;
 }
 
 .dialogue {
-  font-family: var(--font-comics);
+  padding-bottom: 13em;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding-bottom: 30em;
 }
+
 .dialogue :is(.clem, .ju) {
-  width: 51%;
-  border-bottom: 2px solid orange;
+  width: 52%;
   border-radius: 80%;
-  padding: 2em 4ch;
+  background: red;
   text-align:center;
   background: white;
+  align-items: center;
+  justify-content: center;
+  display: grid;
 }
+
 .dialogue .clem {
-  padding-left: 2em;
   float: right;
-  border-left: 2px solid orange;
 }
+
 .dialogue .ju {
   float: left;
-  padding-right: 2em;
-  border-right: 2px solid orange;
+  grid-column: 2;
+}
+
+.dialogue strong {
+  font-weight: 800; 
+}
+
+.ju + .ju,
+.clem + .clem {
+  margin-top: -1em;
+  border-top: white;
 }
