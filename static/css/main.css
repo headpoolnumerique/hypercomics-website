@@ -64,10 +64,10 @@ nav ul {
   flex-flow: row;
   background: linear-gradient(
     to bottom,
-    white 48%,
-    black 48%,
-    black 52%,
-    white 52%
+    white 49%,
+    var(--color-body) 49%,
+    var(--color-body) 51%,
+    white 51%
   );
 }
 
@@ -99,12 +99,17 @@ nav .active svg {
   height: 60px;
 }
 nav .menuTitle {
-  position: fixed;
-  bottom: 5em;
-  left: 0;
-  text-align: center;
-  right: 0;
-  display: none;
+position: fixed;
+bottom: 8em;
+left: 0;
+text-align: center;
+right: 0;
+display: none;
+background: var(--color-body);
+color: white;
+padding: .3em 2ch;
+max-width: max-content;
+margin: auto;
 }
 
 nav li:hover .menuTitle {
