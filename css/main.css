@@ -1,0 +1,432 @@
+
+@import url(fonts.css);
+@import url("https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css");
+
+:root { --font-comics: "Kalam"; --color-body:blue ; --font-sans: "Epilogue"; --color-accent: grey;
+  --color-text: #2F1E2D;
+  --ju-color: orange;
+  --clem-color:purple;
+}
+
+body {
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  display: grid;
+  max-height: 100vh;
+  grid-template-rows: [top] 1fr [menu] 4em [end];
+}
+
+h1,h2,h3 {
+  font-weight: 800;
+}
+
+.menubar {
+  color: var(--color-body);
+}
+.menubar h1 {
+  width: max-content;
+  font-size: 1em;
+  font-style: italic;
+}
+.menubar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.menubar h1 {
+  margin-left: 3ch;
+  text-decoration: underline;
+  color: var(--color-accent);
+}
+nav ul {
+  height: 100%;
+  margin: 0 3ch;
+}
+nav ul {
+  list-style-type: none;
+  display: flex;
+  height: 100%;
+}
+
+nav ul li {
+  height: 100%;
+}
+
+nav ul {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  justify-content: space-around;
+  flex-flow: row;
+  background: linear-gradient(
+    to bottom,
+    white 48%,
+    black 48%,
+    black 52%,
+    white 52%
+  );
+}
+
+nav li {
+  margin: 0 auto;
+  flex-shrink: 5;
+  color: grey;
+  transition: all 1s;
+  display: flex;
+  align-items: center;
+  display: block;
+  transition: all 1s;
+  justify-content: center;
+}
+nav svg {
+  width: 30px;
+  height: 30px;
+  background: white;
+}
+nav .active {
+  flex-grow: 5;
+  flex-shrink: 1;
+  color: var(--accent-color);
+  text-align: center;
+}
+
+nav .active svg {
+  width: 60px;
+  height: 60px;
+}
+nav .menuTitle {
+  position: fixed;
+  bottom: 5em;
+  left: 0;
+  text-align: center;
+  right: 0;
+  display: none;
+}
+
+nav li:hover .menuTitle {
+  display: block;
+}
+h2,
+h3,
+h4 {
+  font-weight: 400;
+  font-size: 1em;
+}
+
+.talk {
+  /* background: red; */
+  display: grid;
+  grid-template-columns: repeat(24, calc(100vw / 25));
+  grid-template-rows: repeat(24, calc((90vh) / 25));
+}
+.talk time {
+  text-align: right;
+  display: inline-block;
+  padding: 0.4em 1ch;
+  grid-row: 4;
+  grid-column: 6 / span 2;
+  background: white;
+}
+
+.talk > svg {
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.talk time + svg {
+  grid-column: 6 / 12;
+  grid-row: 4 / 6;
+}
+.talk header {
+  display: inline-block;
+  padding: 0.4em 1ch;
+  height: max-content;
+  grid-row: 5 /  span 4;
+  background: white;
+  grid-column: 11 / span 10;
+}
+.talk header + svg {
+  grid-column: 10 / 13;
+  grid-row: 6 / 9;
+  transform: scaleY(-1);
+}
+
+.talk iframe,
+.talk .screenshot {
+  box-shadow: 0 0 0 10px white;
+  width: 100%;
+  height: 90%;
+  padding: 0;
+  grid-column: 5 / 23;
+  grid-row: 7/ 16;
+ align-self: center; 
+ justify-self:center;
+ z-index: 1;
+}
+
+.talk.demo iframe,
+.talk.demo .screenshot {
+  box-shadow: 0 0 0 10px white;
+  width: 100%;
+  height: 90%;
+  padding: 0;
+  grid-column: 5 / 23;
+  grid-row:  span 17;
+ align-self: center; 
+ justify-self:center;
+ z-index: 1;
+}
+
+.demo .screenshot::after {
+  content: '' attr(data-width)'px × ' attr(data-height)'px';
+  /* position: absolute; */
+  text-align: right;
+  width:100%;
+  margin: 0;
+  display: block;
+  bottom: 0;
+  right: 1em;
+}
+
+.demo .scrennshot { 
+filter: unset
+}
+
+iframe:hover {
+  filter: none;
+}
+
+.screenshot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 0;
+}
+
+.talk .screenshot + svg {
+  grid-row: 14 / 17;
+  grid-column: 14;
+}
+.talk a.screenshot img {
+  max-height: 100%;
+  height: 100%;
+}
+.talk .screenshot:hover {
+  box-shadow: 0 0 0 7px white, 0 0 0 8px var(--color-accent);
+  filter: none;
+}
+.talk .audioplayer {
+  grid-column: 13/14;
+  grid-row: 17;
+}
+
+/* show hide stuff with target only */
+.talk {
+  display: none;
+  font-style: italic;
+  opacity: 0;
+}
+
+.talk.textBlock {
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.talk.textBlock main {
+  font-size: 1em;
+  margin: auto;
+  width: clamp(80%, 50vw, 1000px);
+}
+
+.talk.textBlock main p {
+  max-width: 50ch;
+}
+.talk.textBlock:target {
+  display: flex;
+}
+.talk:target {
+  display: grid;
+  opacity: 1;
+}
+
+.talk.textBlock > * {
+  margin: 0;
+}
+
+.prevnext {
+  display: block;
+  align-items: center;
+  justify-content: space-around;
+  z-index: 4000;
+}
+.prevnext svg {
+  /* position: absolute; */
+  width: 40px;
+  /* top: 49vh; */
+}
+
+.prevnext {
+  width: auto;
+  position: fixed;
+  top: 48vh;
+}
+.prevnext.next {
+  right: 2ch;
+  text-align: right;
+}
+.prevnext.previous {
+  left: 2ch;
+}
+
+.prevnext .text {
+  width: 20ch;
+  position: absolute;
+  display: none;
+  background: white;
+  width: max-content;
+  padding: 0.2ch 0.2em;
+}
+
+.prevnext:hover {
+  color: var(--color-accent);
+}
+
+.prevnext:hover .text {
+  display: block;
+}
+.prevnext.next .text {
+  right: 5ch;
+}
+.prevnext.previous .text {
+  left: 5ch;
+}
+a:visited {
+  color: inherit;
+}
+a:focus,
+a:hover,
+a:active {
+  color: var(--color-accent);
+}
+
+.intro h1 {
+ font-size: 3em;
+ margin-bottom: .3em;
+width: max-content;
+text-decoration: underline;
+text-decoration-color: currentColor;
+text-decoration-thickness: 5px;
+position: relative;
+}
+
+.intro h1::after {
+  content: "";
+  background: currentColor;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  bottom: -30px;
+  right: 20%;
+  clip-path: polygon(0% 100%, 100% 100%, 45% 100% );
+}
+
+
+
+.intro .logo {
+  display: block;
+  position: absolute;
+  right: 20vw;
+  top: 20vh;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+}
+
+.intro .logo img {
+  filter: grayscale();
+  margin-top:  1em;
+  width: 20ch;
+}
+.resizer {
+  resize:both; overflow:hidden
+}
+.journal:target {
+  display: block;
+}
+.journal {
+  width: clamp(200px, 80vw, 800px);
+  border: 2px solid var(--accent-color);
+  margin: auto;
+  display: none;
+  font-family: var(--font-comics);
+}
+
+.journal header {
+  width: max-content;
+  text-transform: uppercase;
+  padding: .7em 2ch;
+  border: 8px solid black;
+  grid-column: 1/-1;
+  background: white;
+  z-index: 2;
+  position: relative;
+  margin: 2em;
+  box-shadow: 1ch .6em 0 0 black;
+}
+
+.dialogue::before, .dialogue::after {
+  content: "";
+  height: 100vh;
+  position: fixed;
+  top:0;
+  z-index: -1;
+}
+
+.dialogue p {
+  margin-bottom: 2em;
+  clear: both;
+  scroll-snap-type: y mandatory;
+}
+
+.dialogue {
+  padding-bottom: 13em;
+  font-weight: 300;
+  text-transform: uppercase;
+  padding-bottom: 30em;
+}
+
+.dialogue :is(.clem, .ju) {
+  width: 52%;
+  border-radius: 80%;
+  background: red;
+  text-align:center;
+  background: white;
+  align-items: center;
+  justify-content: center;
+  display: grid;
+}
+
+.dialogue .clem {
+  float: right;
+}
+
+.dialogue .ju {
+  float: left;
+  grid-column: 2;
+}
+
+.dialogue strong {
+  font-weight: 800; 
+}
+
+.ju + .ju,
+.clem + .clem {
+  margin-top: -1em;
+  border-top: white;
+}
