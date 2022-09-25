@@ -60,10 +60,11 @@ let outputArray = [ ]
 window.addEventListener('load', function() {
   const section = document.querySelector(`${location.hash}`)
   if(section.classList == "journal") {
-    section.style.visibility = 'hidden'
+    // section.style.visibility = 'hidden'
+    section.querySelectorAll('.leader-line').forEach(el =>{el.remove()})
     initSection(section);
-    section.dataset.lineDone = 'true'
-    section.style.visibility = 'visible'
+    // section.dataset.lineDone = 'true'
+    // section.style.visibility = 'visible'
   } 
 })
 
@@ -78,6 +79,6 @@ window.addEventListener('hashchange', function() {
     // return
   } 
     initSection(section.querySelector('.dialogue'));
-    section.dataset.lineDone = 'true'
+    // section.dataset.lineDone = 'true'
 })
 
