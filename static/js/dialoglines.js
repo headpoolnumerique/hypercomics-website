@@ -1,12 +1,5 @@
 
 
-// {# for each section #}
-// {# for each character → create an array, creates the lines, and markthem correctlu #}
-// {# when the element get in the view, show all the line that belongs to the <array> #}
-
-// const dialogues = document.querySelectorAll('.dialogue'); 
-
-// create a line for each character in each part
 const allCall = {}
 
 function initSection(parent) {
@@ -78,12 +71,13 @@ window.addEventListener('load', function() {
 window.addEventListener('hashchange', function() {
   // check if there ia some lines already, otherwith, addThem;
   const section = document.querySelector(`${location.hash}`)
+  if (section.classList != 'journal') { return } 
   if(section.dataset.lineDone == 'true') {
     console.log('already lined')
-    return
-  } else {
+    section.querySelectorAll('.leader-line').forEach(el =>{el.remove()})
+    // return
+  } 
     initSection(section.querySelector('.dialogue'));
     section.dataset.lineDone = 'true'
-  }
 })
 

@@ -2,7 +2,7 @@
 title: We all live in a Jaune le Sous-marin
 date: 2022-02-01
 type: demo
-urldemo: "http://localhost:3000/horizontal-scroll/index.html"
+urldemo: "https://headpoolnumerique.github.io/hypercomics-prototypes.github.io/horizontal-scroll/index.html"
 ---
 
 L’image de fond vient du très chouette travail de Lucie Brunelière 
