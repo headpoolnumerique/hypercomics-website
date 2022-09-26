@@ -1,4 +1,4 @@
-
+// this script draw line between elements of the dialog
 
 const allCall = {}
 
@@ -59,13 +59,12 @@ let outputArray = [ ]
 }
 window.addEventListener('load', function() {
   const section = document.querySelector(`${location.hash}`)
-  if(section.classList == "journal") {
+  if(section.classList != "journal") return
     // section.style.visibility = 'hidden'
     section.querySelectorAll('.leader-line').forEach(el =>{el.remove()})
     initSection(section);
     // section.dataset.lineDone = 'true'
     // section.style.visibility = 'visible'
-  } 
 })
 
 //when hashchange 
@@ -74,7 +73,7 @@ window.addEventListener('hashchange', function() {
   const section = document.querySelector(`${location.hash}`)
   if (section.classList != 'journal') { return } 
   if(section.dataset.lineDone == 'true') {
-    console.log('already lined')
+    // console.log('already lined')
     section.querySelectorAll('.leader-line').forEach(el =>{el.remove()})
     // return
   } 

@@ -34,21 +34,15 @@ h1,h2,h3 {
   position: fixed;
   bottom: 0;
   width: 100%;
+  background: white;
 }
 
 .menubar h1 {
   margin-left: 3ch;
   text-decoration: underline;
   color: var(--color-accent);
-}
-nav ul {
-  height: 100%;
-  margin: 0 3ch;
-}
-nav ul {
-  list-style-type: none;
-  display: flex;
-  height: 100%;
+  margin-bottom: 1.5em;
+  color: var(--color-body);
 }
 
 nav ul li {
@@ -56,9 +50,10 @@ nav ul li {
 }
 
 nav ul {
+  width: 80%;
   display: flex;
   align-items: center;
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
   justify-content: space-around;
   flex-flow: row;
@@ -83,8 +78,8 @@ nav li {
   justify-content: center;
 }
 nav svg {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   background: white;
 }
 nav .active {
@@ -365,7 +360,9 @@ position: relative;
   display: block;
 }
 .journal {
-  width: clamp(200px, 80vw, 800px);
+ height: 100%;
+padding-bottom: 2em;
+width: clamp(200px, 80vw, 800px);
   border: 2px solid var(--accent-color);
   margin: auto;
   display: none;
@@ -385,17 +382,57 @@ position: relative;
   box-shadow: 1ch .6em 0 0 black;
 }
 
-.dialogue::before, .dialogue::after {
-  content: "";
-  height: 100vh;
-  position: fixed;
-  top:0;
-  z-index: -1;
+
+ .portraits {
+ margin-top: 4em;
+ clear: both;
+ grid-template-columns: 1fr 1fr;
+ gap: 20%;
+ position: sticky;
+ bottom: 7em;
+ display: grid;
+ margin: 0 auto;
+ width: 80%;
+ z-index: 4;
 }
 
+ .portraits img {
+  width: 20%;
+  display: inline-block;
+  background: white;
+}
+.portrait-clem {
+  display: flex;
+  flex-direction: row-reverse; 
+  align-items: end;
+  justify-content: start;
+}
+
+.portrait-clem img {
+  margin: 0 .3em;
+}
+
+.portrait-ju  img{
+  transform: scaleX(-1);
+  margin: 0 .3em;
+}
+
+.portrait-ju {
+  display: flex;
+  align-items: end;
+  justify-content: end;
+}
+.portraits p {
+  margin-top: -1em;
+}
+
+.portraits p {
+  transform: rotate(-20deg);
+}
 .dialogue p {
   margin-bottom: 2em;
   clear: both;
+  padding: 0 10ch;
   scroll-snap-type: y mandatory;
 }
 
@@ -407,7 +444,8 @@ position: relative;
 }
 
 .dialogue :is(.clem, .ju) {
-  width: 52%;
+  /* width: 52%; */
+  width: 38%;
   border-radius: 80%;
   background: red;
   text-align:center;
@@ -415,6 +453,7 @@ position: relative;
   align-items: center;
   justify-content: center;
   display: grid;
+  padding: 1em 18ch;
 }
 
 .dialogue .clem {
@@ -423,7 +462,6 @@ position: relative;
 
 .dialogue .ju {
   float: left;
-  grid-column: 2;
 }
 
 .dialogue strong {
