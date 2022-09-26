@@ -6,9 +6,12 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>{{meta.title}}</title>
-
-        <script src="/js/index.js" type="module"></script>
-        <link rel="stylesheet" href="/css/main.css">
+ <link rel="preload" href="fonts/Kalam-Regular.ttf" as="font" type="font/ttf" crossorigin>
+ <link rel="preload" href="fonts/Kalam-Light.ttf" as="font" type="font/ttf" crossorigin>
+ <link rel="preload" href="fonts/Kalam-Bold.ttf" as="font" type="font/ttf" crossorigin>
+         {# preload the fonts here to avoid the movement of the line in the journal page  #}
+        <script src="js/index.js" type="module"></script>
+        <link rel="stylesheet" href="css/main.css">
 {% block headerSup %}
         
 {% endblock headerSup %}

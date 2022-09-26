@@ -1,6 +1,5 @@
 
 @import url(fonts.css);
-@import url("https://cdn.jsdelivr.net/npm/comic-mono@0.0.1/index.css");
 
 :root { --font-comics: "Kalam"; --color-body:blue ; --font-sans: "Epilogue"; --color-accent: grey;
   --color-text: #2F1E2D;
@@ -453,7 +452,7 @@ width: clamp(200px, 80vw, 800px);
   align-items: center;
   justify-content: center;
   display: grid;
-  padding: 1em 18ch;
+  padding: 1em 8ch;
 }
 
 .dialogue .clem {
